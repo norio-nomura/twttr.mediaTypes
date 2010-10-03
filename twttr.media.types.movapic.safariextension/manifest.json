@@ -1,0 +1,12 @@
+{
+    "name":"twttr.media.types.movapic",
+    "version":"1.0",
+    "description":"Show preview image from movapic.com on #NewTwitter.",
+    "content_scripts":[
+        {
+            "matches":["https://twitter.com/*"],
+            "js":["afterLoad.js"],
+            "run_at":"document_end"
+        }
+    ]
+}
