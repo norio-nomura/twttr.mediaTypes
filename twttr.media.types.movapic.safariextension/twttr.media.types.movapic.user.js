@@ -1,3 +1,14 @@
+// ==UserScript==
+// @name		twttr.media.types.movapic
+// @namespace	http://norio-nomura.github.com/twttr.media.types.movapic/
+// @description	Show preview image from movapic.com on #NewTwitter.
+// @include		http://twitter.com/*
+// @include		https://twitter.com/*
+// @copyright	2010, Norio Nomura (http://norio-nomura.github.com/twttr.media.types.movapic/)
+// @license		MIT License
+// @version		1.1
+// ==/UserScript==
+
 /*
 
 The MIT License
@@ -24,12 +35,12 @@ THE SOFTWARE.
 
 */
 
-var script = document.createElement("script");
+(function(){var script = document.createElement("script");
 script.type = "text/javascript";
 script.text = "{var a = function(){\n\
 if(window.twttr.mediaType){\n\
 window.twttr.mediaType(\"twttr.media.types.movapic\").matcher(/\\b(?:http\\:\\/\\/)?movapic\\.com\\/pic\\/(\\w+)/g).icon(\"photo\").favicon(\"http://assets.movapic.com/image/parts/favicon.gif\").url(\"http://movapic.com\").process(function(B,A){B=B.replace(/\\/$/,\"\");this.data.id=B;A()}).methods({html:function(A){var B='<div class=\"movapic\"><a class=\"inline-media-image\" data-inline-type=\"movapic\" href=\"http://movapic.com/pic/{id}\" target=\"_blank\"><img src=\"http://image.movapic.com/pic/m_{id}.jpeg\"/></a></div>';A(twttr.supplant(B,this.data))}});delete a;\n\
 }else{setTimeout(a,100);}\n\
 };a();}";
-document.head.appendChild(script);
+document.head.appendChild(script);})();
 

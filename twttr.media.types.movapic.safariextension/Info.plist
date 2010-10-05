@@ -11,9 +11,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>Chrome</key>
 	<dict/>
 	<key>Content</key>
@@ -22,7 +22,7 @@
 		<dict>
 			<key>End</key>
 			<array>
-				<string>afterLoad.js</string>
+				<string>twttr.media.types.movapic.user.js</string>
 			</array>
 		</dict>
 	</dict>
