@@ -6,7 +6,7 @@
 // @include		https://twitter.com/*
 // @copyright	2010, Norio Nomura (http://norio-nomura.github.com/twttr.media.types.movapic/)
 // @license		MIT License
-// @version		1.1
+// @version		1.2
 // ==/UserScript==
 
 /*
@@ -37,10 +37,22 @@ THE SOFTWARE.
 
 (function(){var script = document.createElement("script");
 script.type = "text/javascript";
-script.text = "{var a = function(){\n\
-if(window.twttr.mediaType){\n\
-window.twttr.mediaType(\"twttr.media.types.movapic\").matcher(/\\b(?:http\\:\\/\\/)?movapic\\.com\\/pic\\/(\\w+)/g).icon(\"photo\").favicon(\"http://assets.movapic.com/image/parts/favicon.gif\").url(\"http://movapic.com\").process(function(B,A){B=B.replace(/\\/$/,\"\");this.data.id=B;A()}).methods({html:function(A){var B='<div class=\"movapic\"><a class=\"inline-media-image\" data-inline-type=\"movapic\" href=\"http://movapic.com/pic/{id}\" target=\"_blank\"><img src=\"http://image.movapic.com/pic/m_{id}.jpeg\"/></a></div>';A(twttr.supplant(B,this.data))}});delete a;\n\
-}else{setTimeout(a,100);}\n\
-};a();}";
+script.text = "{\n\
+var dispatchTimeoutEvent = function() {\n\
+	var evt = document.createEvent(\"CustomEvent\");\n\
+	evt.initCustomEvent(\"twttr.media.types.comGitHubNorioNomura\",false,true);\n\
+	document.dispatchEvent(evt);\n\
+};\n\
+var movapicListener = function(evt){\n\
+	if (typeof(twttr.mediaType) != \"undefined\"){\n\
+		twttr.mediaType(\"twttr.media.types.movapic\").matcher(/\\b(?:http\\:\\/\\/)?movapic\\.com\\/pic\\/(\\w+)/g).icon(\"photo\").favicon(\"http://assets.movapic.com/image/parts/favicon.gif\").url(\"http://movapic.com\").process(function(B,A){B=B.replace(/\\/$/,\"\");this.data.id=B;A()}).methods({html:function(A){var B='<div class=\"movapic\"><a class=\"inline-media-image\" data-inline-type=\"movapic\" href=\"http://movapic.com/pic/{id}\" target=\"_blank\"><img src=\"http://image.movapic.com/pic/m_{id}.jpeg\"/></a></div>';A(twttr.supplant(B,this.data))}});\n\
+		document.removeEventListener(\"twttr.media.types.comGitHubNorioNomura\", movapicListener, true);\n\
+		delete dispatchTimeoutEvent;\n\
+		delete movapicListener;\n\
+	} else {setTimeout(dispatchTimeoutEvent,500);}\n\
+};\n\
+document.addEventListener(\"twttr.media.types.comGitHubNorioNomura\", movapicListener, true);\n\
+setTimeout(dispatchTimeoutEvent,500);\n\
+}";
 document.head.appendChild(script);})();
 
