@@ -1,7 +1,12 @@
 {
     "name":"twttr.media.types.movapic",
-    "version":"1.3",
+    "version":"1.4",
     "description":"Show preview image from movapic.com on #NewTwitter.",
+    "icons":{
+        "16":"Icon-16.png",
+        "48":"Icon-48.png",
+        "128":"Icon-128.png"
+    },
     "content_scripts":[
         {
             "matches":[
@@ -10,7 +15,7 @@
                 "http://twitter.com/#*",
                 "https://twitter.com/#*"
             ],
-            "js":["twttr.media.types.movapic.user.js"],
+            "js":["twttr.media.types.movapic.js"],
             "run_at":"document_end"
         }
     ]
