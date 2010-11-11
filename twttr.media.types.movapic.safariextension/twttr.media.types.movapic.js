@@ -36,13 +36,19 @@ if (window.top === window) {
     var movapicListener = function(evt){\n\
         if (typeof(twttr.mediaType) != \"undefined\"){\n\
             if (typeof(twttr.media.types.movapic) == \"undefined\") {\n\
-                twttr.mediaType(\"twttr.media.types.movapic\").matcher(/\\b(?:http\\:\\/\\/)?movapic\\.com\\/pic\\/(\\w+)/g).icon(\"photo\").favicon(\"http://assets.movapic.com/image/parts/favicon.gif\").url(\"http://movapic.com\").process(function(B,A){\n\
-                    B=B.replace(/\\/$/,\"\");\n\
-                    this.data.id=B;A();\n\
-                }).methods({html:function(A){\n\
-                    var B='<div class=\"movapic\"><a class=\"inline-media-image\" data-inline-type=\"movapic\" href=\"http://movapic.com/pic/{id}\" target=\"_blank\"><img src=\"http://image.movapic.com/pic/m_{id}.jpeg\"/></a></div>';\n\
-                    A(twttr.supplant(B,this.data))\n\
-                }});\n\
+                twttr.mediaType(\"twttr.media.types.movapic\", {\n\
+                    title: \"movapic\", icon :\"photo\", favicon : \"http://assets.movapic.com/image/parts/favicon.gif\", domain : \"http://movapic.com\", matchers:{\n\
+                        standardUrl: /^#{optional_protocol}?movapic\\.com\\/pic\\/(\\w+)/g\n\
+                    },\n\
+                    process : function(A){\n\
+                        this.data.id = this.slug;\n\
+                        A()\n\
+                    },\n\
+                    render : function(B){\n\
+                        var A = '<div class=\"movapic\"><a class=\"inline-media-image\" data-inline-type=\"movapic\" href=\"http://movapic.com/pic/{id}\" target=\"_blank\"><img src=\"http://image.movapic.com/pic/m_{id}.jpeg\"/></a></div>';\n\
+                        $(B).append(twttr.supplant(A, this.data))\n\
+                    }\n\
+                });\n\
             }\n\
             document.removeEventListener(\"twttr.media.types.comGitHubNorioNomura\", movapicListener, true);\n\
             delete dispatchTimeoutEvent;\n\

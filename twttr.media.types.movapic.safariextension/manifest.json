@@ -1,6 +1,6 @@
 {
     "name":"twttr.media.types.movapic",
-    "version":"1.4",
+    "version":"1.5",
     "description":"Show preview image from movapic.com on #NewTwitter.",
     "icons":{
         "16":"Icon-16.png",
