@@ -53,6 +53,9 @@ if (window.top === window) {
                     twttr.app.currentPage().focusStreamItem(D);\n\
                 }\n\
             };\n\
+            twttr.currentUser.showAllInlineMedia = function(H){\n\
+                H.success({show_all_inline_media:true});\n\
+            };\n\
             document.removeEventListener(\"twttr.media.types.comGitHubNorioNomura\", twttrstreamsStreamhighlightItemListener, true);\n\
             delete dispatchTimeoutEvent;\n\
             delete twttrstreamsStreamhighlightItemListener;\n\
