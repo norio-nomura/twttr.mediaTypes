@@ -24,39 +24,23 @@ THE SOFTWARE.
 
 */
 
-if (window.top === window) {
-    (function(){var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.text = "(function(){\n\
-    var dispatchTimeoutEvent = function() {\n\
-        var evt = document.createEvent(\"CustomEvent\");\n\
-        evt.initCustomEvent(\"twttr.media.types.comGitHubNorioNomura\", false, true);\n\
-        document.dispatchEvent(evt);\n\
-    };\n\
-    var movapicListener = function(evt){\n\
-        if (typeof(twttr.mediaType) != \"undefined\"){\n\
-            if (typeof(twttr.media.types.movapic) == \"undefined\") {\n\
-                twttr.mediaType(\"twttr.media.types.movapic\", {\n\
-                    title: \"movapic\", icon :\"photo\", favicon : \"http://assets.movapic.com/image/parts/favicon.gif\", domain : \"http://movapic.com\", matchers:{\n\
-                        standardUrl: /^#{optional_protocol}?movapic\\.com\\/pic\\/(\\w+)/g\n\
-                    },\n\
-                    process : function(A){\n\
-                        this.data.id = this.slug;\n\
-                        A()\n\
-                    },\n\
-                    render : function(B){\n\
-                        var A = '<div class=\"movapic\"><a class=\"inline-media-image\" data-inline-type=\"movapic\" href=\"http://movapic.com/pic/{id}\" target=\"_blank\"><img src=\"http://image.movapic.com/pic/m_{id}.jpeg\"/></a></div>';\n\
-                        $(B).append(twttr.supplant(A, this.data))\n\
-                    }\n\
-                });\n\
-            }\n\
-            document.removeEventListener(\"twttr.media.types.comGitHubNorioNomura\", movapicListener, true);\n\
-            delete dispatchTimeoutEvent;\n\
-            delete movapicListener;\n\
-        } else {setTimeout(dispatchTimeoutEvent, 500);}\n\
-    };\n\
-    document.addEventListener(\"twttr.media.types.comGitHubNorioNomura\", movapicListener, true);\n\
-    setTimeout(dispatchTimeoutEvent, 500);\n\
-    })();";
-    document.head.appendChild(script);})();
-}
+(function () {
+    if (typeof(twttr.mediaType) !== 'undefined'){
+        if (typeof(twttr.media.types.movapic) === 'undefined') {
+            twttr.mediaType('twttr.media.types.movapic', {
+                icon :'photo', favicon : 'http://assets.movapic.com/image/parts/favicon.gif',
+                domain : 'http://movapic.com', matchers: {
+                    standardUrl: /^#{optional_protocol}?movapic\.com\/pic\/(\w+)/g
+                },
+                process : function (A) {
+                    this.data.id = this.slug;
+                    A();
+                },
+                render : function(B){
+                    var A = '<div class="movapic"><a class="inline-media-image" data-inline-type="movapic" href="http://movapic.com/pic/{id}" target="_blank"><img src="http://image.movapic.com/pic/m_{id}.jpeg"/></a></div>';
+                    $(B).append(twttr.supplant(A, this.data));
+                }
+            });
+        }
+    }
+})();

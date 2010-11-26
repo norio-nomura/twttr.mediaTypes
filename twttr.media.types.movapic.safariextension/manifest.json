@@ -1,6 +1,6 @@
 {
     "name":"twttr.media.types.movapic",
-    "version":"1.5",
+    "version":"1.6",
     "description":"Show preview image from movapic.com on #NewTwitter.",
     "icons":{
         "16":"Icon-16.png",
@@ -15,8 +15,8 @@
                 "http://twitter.com/#*",
                 "https://twitter.com/#*"
             ],
-            "js":["twttr.media.types.movapic.js"],
-            "run_at":"document_end"
+            "js":["injectHTMLScriptElement.js"],
+            "run_at":"document_start"
         }
     ]
 }

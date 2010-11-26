@@ -11,18 +11,18 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.5</string>
+	<string>1.6</string>
 	<key>CFBundleVersion</key>
-	<string>1.5</string>
+	<string>1.6</string>
 	<key>Chrome</key>
 	<dict/>
 	<key>Content</key>
 	<dict>
 		<key>Scripts</key>
 		<dict>
-			<key>End</key>
+			<key>Start</key>
 			<array>
-				<string>twttr.media.types.movapic.js</string>
+				<string>injectHTMLScriptElement.js</string>
 			</array>
 		</dict>
 		<key>Whitelist</key>
