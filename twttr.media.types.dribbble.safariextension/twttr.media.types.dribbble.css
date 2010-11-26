@@ -1,0 +1,178 @@
+.tweet-media ol,
+.tweet-media ul {
+    list-style: none;
+    }
+
+/* main dribbble list */
+
+.tweet-media ol.dribbbles li {
+    position: relative;
+    width: 220px;
+    float: left;
+    padding: 0;
+    margin: 0 20px 30px 0;
+    }
+.tweet-media ol.dribbbles li.third {
+    margin-right: 0;
+    }
+.tweet-media ol.dribbbles li h2 {
+    margin: 0;
+    padding: 0 0 0 10px;
+    font-size: .85em;
+    font-weight: normal;
+    line-height: 1.4em;
+    color: #999;
+    vertical-align: middle;
+    }
+.tweet-media ol.dribbbles li h2 a img {
+    float: left;
+    width: 16px;
+    margin: 0 5px 0 0;
+    vertical-align: middle;
+    }
+.tweet-media ol.dribbbles li h2 a {
+    font-weight: bold;
+    text-decoration: none;
+    }
+.tweet-media ol.dribbbles li h2 a:hover img {
+    width: 16px;
+    }
+.tweet-media ol.dribbbles li div.dribbble {
+    position: relative;
+    clear: left;
+    padding: 0 0 10px 0;
+    background: url(http://dribbble.com/images/dribbble-bottom-sm.png) no-repeat bottom left;
+    overflow: hidden;
+    }
+.tweet-media ol.dribbbles li div.dribbble div.dribbble-shot {
+    padding: 10px;
+    background: url(http://dribbble.com/images/dribbble-check-sm.gif) no-repeat top left;
+    }
+.tweet-media ol.dribbbles li div.dribbble a.dribbble-over:hover {
+    opacity: 1 ! important;
+    }
+.tweet-media ol.dribbbles li div.dribbble a.dribbble-over {
+    opacity: 0; /* revealed on hover with jQuery */
+    filter: alpha(opacity = 0); /* IE hack */
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 180px;
+    height: 130px;
+    margin: 0;
+    padding: 10px;
+    font-size: .8em;
+    line-height: 2em;
+    text-decoration: none;
+    color: #888;
+    background: url(http://dribbble.com/images/zoom-bg-white.png) no-repeat bottom right;
+    }
+.tweet-media ol.dribbbles li div.dribbble a.dribbble-over strong {
+    display: block;
+    margin: 0;
+    font-weight: bold;
+    font-size: 1.4em;
+    line-height: 1.2em;
+    color: #ea4c88;
+    }
+.tweet-media ol.dribbbles li div.dribbble a.dribbble-over span.dim { 
+    font-weight: bold;
+    color: #666;
+    }
+.tweet-media ol.dribbbles li div.dribbble a.dribbble-over em {
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    margin: 0 0 3px 0;
+    font-size: 1em;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1em;
+    color: #888;
+    }
+.tweet-media ol.dribbbles li div.dribbble-img {
+    width: 200px;
+    height: 150px;
+    overflow: hidden;
+    }
+
+/* tool icons */
+
+.tweet-media ol.dribbbles li ul.tools {
+    margin: 10px 0 0 0;
+    text-align: left;
+    }
+.tweet-media ul.tools li {
+    float: right;
+    width: auto;
+    margin: 0 0 0 12px;
+    display: inline;
+    font-size: .78em;
+    line-height: 1;
+    color: #aaa;
+    }
+.tweet-media ul.tools li.rebound {
+    float: left;
+    }
+.tweet-media ul.tools li a {
+    text-decoration: none;
+    color: #aaa;
+    }
+.tweet-media ul.tools li.views {
+    margin-left: 0;
+    border-left: none;
+    padding-left: 19px;
+    background: url(http://dribbble.com/images/icon-views-sm.png) no-repeat 0 50%;
+    }
+.tweet-media ul.tools li.current-user-view { 
+    background-image: url(http://dribbble.com/images/icon-views-sm.png);
+    }
+.tweet-media li.cmnt a,
+li.cmnt span {
+    padding-left: 15px;
+    background: url(http://dribbble.com/images/icon-comments.png) no-repeat 0 0;
+    }
+.tweet-media li.cmnt a:hover {
+    background-position: 0 -15px;
+    }
+.tweet-media li.current-user-cmnt a {
+    background-position: 0 0;
+    }
+.tweet-media li.comments-since a {
+    background-position: 0 -45px;
+    }
+.tweet-media li.fav a,
+.tweet-media li.fav span {
+    padding-left: 15px;
+    background: url(http://dribbble.com/images/icon-hearts.gif) no-repeat 0 0;
+    }
+.tweet-media li.fav a:hover {
+    background-position: 0 -17px;
+    }
+.tweet-media li.fav.marked a,
+.tweet-media li.fav.marked span {
+    background-position: 0 -34px;
+    }
+.tweet-media li.fav strong a,
+.tweet-media li.fav.marked strong a {
+    color: #999;
+    text-decoration: underline;
+    }
+.tweet-media ul.tools li a:hover {
+    color: #777;
+    }
+.tweet-media li.progress a.fav-toggle {
+    background: url(http://dribbble.com/images/ajax-bounce.gif) no-repeat 0 0;
+    }
+
+
+/* self-clear floats */
+
+.tweet-media .group:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+    }
