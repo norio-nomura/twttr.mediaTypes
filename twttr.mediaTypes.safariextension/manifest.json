@@ -1,12 +1,13 @@
 {
-    "name":"twttr.media.types.dribbble",
-    "version":"1.7",
-    "description":"Show preview image from dribbble.com on #NewTwitter.",
-    "icons":{
-        "16":"Icon-16.png",
-        "48":"Icon-48.png",
-        "128":"Icon-128.png"
-    },
+    "name":"twttr.mediaTypes",
+    "version":"1.0",
+    "description":"Show preview image from some sites on #NewTwitter.",
+//    "icons":{
+//        "16":"Icon-16.png",
+//        "48":"Icon-48.png",
+//        "128":"Icon-128.png"
+//    },
+    "background_page":"twttr.media.types.instagram.global.html",
     "content_scripts":[
         {
             "matches":[
@@ -15,7 +16,9 @@
                 "http://twitter.com/#*",
                 "https://twitter.com/#*"
             ],
-            "js":["injectHTMLScriptElement.js"],
+            "js":[
+                "injectHTMLScriptElement.js"
+            ],
             "run_at":"document_start"
         },
         {
@@ -25,11 +28,14 @@
                 "http://twitter.com/#*",
                 "https://twitter.com/#*"
             ],
-            "js":["injectHTMLLinkElement.js"],
+            "js":[
+                "injectHTMLLinkElement.js",
+                "twttr.media.types.instagram.listener.js"
+            ],
             "run_at":"document_end"
         }
     ],
     "permissions":[
-        "http://api.dribbble.com/*"
+        "http://instagr.am/*"
     ]
 }

@@ -30,7 +30,7 @@ THE SOFTWARE.
             twttr.mediaType('twttr.media.types.nicovideo', {
                 icon : function (A) {
                     this.data.id = this.slug;
-                    if (/^(sm)?\d+$/.test(this.data.id)) {
+                    if (/^(sm|nm)?\d+$/.test(this.data.id)) {
                         this.data.type = 'sm';
                     } else if (/^lv\d+$/.test(this.data.id)) {
                         this.data.type = 'lv';
@@ -50,8 +50,8 @@ THE SOFTWARE.
                     }
                 },
                 domain : 'http://www.nicovideo.jp', matchers : {
-                    tinyUrl : /^#{optional_protocol}?nico\.ms\/(?:l\/)?((?:sm|lv|im|co)?\d+)(?:#.*)?$/g,
-                    standardUrl: /^#{optional_protocol}?(?:www|live|seiga|com)\.nicovideo\.jp\/(?:watch|seiga|community)\/((?:sm|lv|im|co)?\d+)(?:#.*)?$/g
+                    tinyUrl : /^#{optional_protocol}?nico\.ms\/(?:l\/)?((?:sm|lv|nm|im|co)?\d+)(?:#.*)?$/g,
+                    standardUrl: /^#{optional_protocol}?(?:www|live|seiga|com)\.nicovideo\.jp\/(?:watch|seiga|community)\/((?:sm|lv|nm|im|co)?\d+)(?:#.*)?$/g
                 },
                 process : function (A) {
                     A();

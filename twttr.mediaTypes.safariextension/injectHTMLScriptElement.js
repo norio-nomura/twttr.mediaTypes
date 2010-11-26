@@ -29,18 +29,38 @@ if (window.top === window) {
         var handleLoad = function (evt) {
             if (evt.target.nodeName === 'SCRIPT') {
                 if (/^https:.*\/phoenix\.bundle\.js/.test(evt.target.src)) {
-                    var script = window.document.createElement('script');
-                    if (typeof(safari) !== 'undefined') {
-                        script.src = safari.extension.baseURI + scriptFileName;
-                    } else if (typeof(chrome) !== 'undefined') {
-                        script.src = chrome.extension.getURL(scriptFileName);
-                    }
                     window.document.removeEventListener("load", handleLoad, true);
-                    window.document.head.appendChild(script);
+                    var scriptFileNames;
+                    if (typeof(scriptFileName) === 'string') {
+                        scriptFileNames = [scriptFileName];
+                    } else if (typeof(scriptFileName) === 'object' && Array.isArray(scriptFileName)) {
+                        scriptFileNames = scriptFileName;
+                    }
+                    if (Array.isArray(scriptFileNames)) {
+                        if (typeof(safari) !== 'undefined') {
+                            for (var i = 0; i< scriptFileNames.length; i++) {
+                                var script = window.document.createElement('script');
+                                script.src = safari.extension.baseURI + scriptFileNames[i];
+                                window.document.head.appendChild(script);
+                            }
+                        } else if (typeof(chrome) !== 'undefined') {
+                            for (var i = 0; i< scriptFileNames.length; i++) {
+                                var script = window.document.createElement('script');
+                                script.src = chrome.extension.getURL(scriptFileNames[i]);
+                                window.document.head.appendChild(script);
+                            }
+                        }
+                    }
                     delete handleLoad;
                 }
             }
         };
         window.document.addEventListener("load", handleLoad, true);
-    })('twttr.media.types.dribbble.js');
+    })([
+        'twttr.media.types.dribbble.js',
+        'twttr.media.types.instagram.js',
+        'twttr.media.types.movapic.js',
+        'twttr.media.types.nicovideo.js',
+        'twttr.streams.Stream.highlightItem.js'
+    ]);
 }
