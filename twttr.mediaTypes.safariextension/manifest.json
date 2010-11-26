@@ -2,11 +2,11 @@
     "name":"twttr.mediaTypes",
     "version":"1.0",
     "description":"Show preview image from some sites on #NewTwitter.",
-//    "icons":{
-//        "16":"Icon-16.png",
-//        "48":"Icon-48.png",
-//        "128":"Icon-128.png"
-//    },
+    "icons":{
+        "16":"Icon-16.png",
+        "48":"Icon-48.png",
+        "128":"Icon-128.png"
+    },
     "background_page":"twttr.media.types.instagram.global.html",
     "content_scripts":[
         {
