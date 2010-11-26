@@ -11,27 +11,27 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1</string>
+	<string>1.2</string>
 	<key>CFBundleVersion</key>
-	<string>1.1</string>
+	<string>1.2</string>
 	<key>Chrome</key>
 	<dict/>
 	<key>Content</key>
 	<dict>
 		<key>Scripts</key>
 		<dict>
-			<key>End</key>
+			<key>Start</key>
 			<array>
-				<string>twttr.streams.Stream.highlightItem.js</string>
+				<string>injectHTMLScriptElement.js</string>
 			</array>
 		</dict>
-        <key>Whitelist</key>
-        <array>
-        	<string>http://twitter.com/</string>
-        	<string>https://twitter.com/</string>
-        	<string>http://twitter.com/#*</string>
-        	<string>https://twitter.com/#*</string>
-        </array>
+		<key>Whitelist</key>
+		<array>
+			<string>http://twitter.com/</string>
+			<string>https://twitter.com/</string>
+			<string>http://twitter.com/#*</string>
+			<string>https://twitter.com/#*</string>
+		</array>
 	</dict>
 	<key>Description</key>
 	<string>Force preview to following keyboard navigation on Twitter.</string>

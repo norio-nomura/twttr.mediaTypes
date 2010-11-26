@@ -1,6 +1,6 @@
 {
     "name":"twttr.streams.Stream.highlightItem",
-    "version":"1.1",
+    "version":"1.2",
     "description":"Force preview to following keyboard navigation on Twitter.",
     "content_scripts":[
         {
@@ -10,8 +10,8 @@
                 "http://twitter.com/#*",
                 "https://twitter.com/#*"
             ],
-            "js":["twttr.streams.Stream.highlightItem.js"],
-            "run_at":"document_end"
+            "js":["injectHTMLScriptElement.js"],
+            "run_at":"document_start"
         }
     ]
 }

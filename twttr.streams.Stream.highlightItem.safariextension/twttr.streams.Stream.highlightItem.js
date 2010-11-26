@@ -24,46 +24,28 @@ THE SOFTWARE.
 
 */
 
-if (window.top === window) {
-    
-    (function(){var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.text = "(function(){\n\
-    var dispatchTimeoutEvent = function() {\n\
-        var evt = document.createEvent(\"CustomEvent\");\n\
-        evt.initCustomEvent(\"twttr.media.types.comGitHubNorioNomura\", false, true);\n\
-        document.dispatchEvent(evt);\n\
-    };\n\
-    var twttrstreamsStreamhighlightItemListener = function(evt){\n\
-        if (typeof(twttr.app) != \"undefined\" && \n\
-            typeof(twttr.app.currentPage()) != \"undefined\" && \n\
-            typeof(twttr.app.currentPage().streamManager.streams.current.__proto__.__proto__.__proto__.highlightItem) != \"undefined\"){\n\
-            twttr.app.currentPage().streamManager.streams.current.__proto__.__proto__.__proto__.highlightItem = function (A) {\n\
-                var B = this.getCurrentlyHighlightedItem();\n\
-                if (B) {\n\
-                    B.removeClass(\"hovered-stream-item\")\n\
-                }\n\
-                this.highlightedItemId = A.attr(\"data-item-id\");\n\
-                A.addClass(\"hovered-stream-item\")\n\
-                var C = this.getCurrentlyFocusedItem();\n\
-                if (C) {\n\
-                    this.unfocusItem(C);\n\
-                    var D = this.$find(\".stream-item[data-item-id=\" + this.highlightedItemId + \"]\");\n\
-                    this.focusItem(D);\n\
-                    twttr.app.currentPage().focusStreamItem(D);\n\
-                }\n\
-            };\n\
-            twttr.currentUser.showAllInlineMedia = function(H){\n\
-                H.success({show_all_inline_media:true});\n\
-            };\n\
-            document.removeEventListener(\"twttr.media.types.comGitHubNorioNomura\", twttrstreamsStreamhighlightItemListener, true);\n\
-            delete dispatchTimeoutEvent;\n\
-            delete twttrstreamsStreamhighlightItemListener;\n\
-        } else {setTimeout(dispatchTimeoutEvent, 500);}\n\
-    };\n\
-    document.addEventListener(\"twttr.media.types.comGitHubNorioNomura\", twttrstreamsStreamhighlightItemListener, true);\n\
-    setTimeout(dispatchTimeoutEvent, 500);\n\
-    })();";
-    document.head.appendChild(script);})();
+(function () {
+    if (typeof(twttr.app) !== 'undefined' &&
+        typeof(twttr.app.currentPage()) !== 'undefined' &&
+        typeof(twttr.app.currentPage().streamManager.streams.current.__proto__.__proto__.__proto__.highlightItem) !== 'undefined') {
+        twttr.app.currentPage().streamManager.streams.current.__proto__.__proto__.__proto__.highlightItem = function (A) {
+            var B = this.getCurrentlyHighlightedItem();
+            if (B) {
+                B.removeClass('hovered-stream-item');
+            }
+            this.highlightedItemId = A.attr('data-item-id');
+            A.addClass('hovered-stream-item');
+            var C = this.getCurrentlyFocusedItem();
+            if (C) {
+                this.unfocusItem(C);
+                var D = this.$find('.stream-item[data-item-id=' + this.highlightedItemId + ']');
+                this.focusItem(D);
+                twttr.app.currentPage().focusStreamItem(D);
+            }
+        };
+        twttr.currentUser.showAllInlineMedia = function (H) {
+            H.success({show_all_inline_media:true});
+        };
+    }
+})();
 
-}
