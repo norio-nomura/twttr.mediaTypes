@@ -1,6 +1,6 @@
 {
     "name":"twttr.media.types.nicovideo",
-    "version":"1.0",
+    "version":"1.1",
     "description":"Show preview image from nicovideo.jp on #NewTwitter.",
     "content_scripts":[
         {

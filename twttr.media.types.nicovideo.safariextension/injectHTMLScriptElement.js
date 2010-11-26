@@ -25,22 +25,22 @@ THE SOFTWARE.
 */
 
 if (window.top === window) {
-    (function () {
-        var scriptFileName = 'twttr.media.types.nicovideo.js', handleLoad = function (evt) {
+    (function (scriptFileName) {
+        var handleLoad = function (evt) {
             if (evt.target.nodeName === 'SCRIPT') {
                 if (/^https:.*\/phoenix\.bundle\.js/.test(evt.target.src)) {
-                    var script = document.createElement('script');
+                    var script = window.document.createElement('script');
                     if (typeof(safari) !== 'undefined') {
                         script.src = safari.extension.baseURI + scriptFileName;
                     } else if (typeof(chrome) !== 'undefined') {
                         script.src = chrome.extension.getURL(scriptFileName);
                     }
-                    document.removeEventListener("load", handleLoad, true);
-                    document.head.appendChild(script);
+                    window.document.removeEventListener("load", handleLoad, true);
+                    window.document.head.appendChild(script);
                     delete handleLoad;
                 }
             }
         };
-        document.addEventListener("load", handleLoad, true);
-    })();
+        window.document.addEventListener("load", handleLoad, true);
+    })('twttr.media.types.nicovideo.js');
 }

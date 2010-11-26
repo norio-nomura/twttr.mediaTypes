@@ -24,8 +24,7 @@ THE SOFTWARE.
 
 */
 
-
-(function(){
+(function () {
     if (typeof(twttr.mediaType) !== 'undefined'){
         if (typeof(twttr.media.types.nicovideo) === 'undefined'){
             twttr.mediaType('twttr.media.types.nicovideo', {
@@ -40,8 +39,7 @@ THE SOFTWARE.
                     } else if (/^co\d+$/.test(this.data.id)) {
                         this.data.type = 'co';
                     }
-                    switch (this.data.type)
-                    {
+                    switch (this.data.type) {
                         case 'sm':
                         case 'lv':
                             return 'video';
@@ -52,21 +50,19 @@ THE SOFTWARE.
                     }
                 },
                 domain : 'http://www.nicovideo.jp', matchers : {
-                    tinyUrl : /^#{optional_protocol}?nico.ms\/(?:l\/)?((?:sm|lv|im|co)?\d+)(?:#.*)?$/g,
-                    standardUrl: /^#{optional_protocol}?(?:www|live|seiga|com).nicovideo.jp\/(?:watch|seiga|community)\/((?:sm|lv|im|co)?\d+)(?:#.*)?$/g
+                    tinyUrl : /^#{optional_protocol}?nico\.ms\/(?:l\/)?((?:sm|lv|im|co)?\d+)(?:#.*)?$/g,
+                    standardUrl: /^#{optional_protocol}?(?:www|live|seiga|com)\.nicovideo\.jp\/(?:watch|seiga|community)\/((?:sm|lv|im|co)?\d+)(?:#.*)?$/g
                 },
-                process : function(A){
+                process : function (A) {
                     A();
                 },
-                render : function(B){
+                render : function (B) {
                     if (this.data.type) {
                         $(B).append(twttr.supplant(this.constructor.templates[this.data.type], this.data));
                     }
                 }
-            }).statics(
-            {
-                templates : 
-                {
+            }).statics({
+                templates : {
                     sm : '<iframe width="312" height="176" src="http://ext.nicovideo.jp/thumb/{id}" scrolling="no" style="border:solid 1px #CCC;" frameborder="0"></iframe>',
                     lv : '<iframe width="312" height="176" src="http://live.nicovideo.jp/embed/{id}" scrolling="no" style="border:solid 1px #CCC;" frameborder="0"></iframe>',
                     im : '<iframe width="312" height="176" src="http://ext.seiga.nicovideo.jp/thumb/{id}" scrolling="no" style="border:solid 1px #888;" frameborder="0"></iframe>',
