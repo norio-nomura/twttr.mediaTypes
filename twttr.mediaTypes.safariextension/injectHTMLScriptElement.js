@@ -61,6 +61,7 @@ if (window.top === window) {
         'twttr.media.types.instagram.js',
         'twttr.media.types.movapic.js',
         'twttr.media.types.nicovideo.js',
+        'twttr.media.types.withings.js',
         'twttr.streams.Stream.highlightItem.js'
     ]);
 }
