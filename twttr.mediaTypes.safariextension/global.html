@@ -27,40 +27,25 @@ THE SOFTWARE.
 <html>
 <head>
 <title>twttr.media.types.instagram</title>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 
-function getInstagram(path, response) {
-	var url = 'http://instagr.am/'+path;
-	$.ajax({
-	    type: 'GET',
-	    url: url,
-	    dataType: 'html',
-	    global: false,
-	    contentType: 'text/html',
-	    complete: function (xhr, textStatus) {
-            var element = $(xhr.responseText).find('#photo');
-            if (element) {
-                response({id: path, innerHTML: element.html()});
-            } else {
-                response({id: path, innerHTML: textStatus});
-            }
-	    }
-	});
-}
+var handlers = {};
 
 function handleMessageEvent(messageEvent) {
-    if(messageEvent.name === 'twttr.media.types.instagram') {
-        getInstagram(messageEvent.message, function (message) {
+    var handler = handlers[messageEvent.name];
+    if(handler) {
+        handler(messageEvent.message, function (message) {
             messageEvent.target.page.dispatchMessage(messageEvent.message, message);
         });
     }
 }
 
 function handleConnect(port) {
-    if (port.name === 'twttr.media.types.instagram') {
+    var handler = handlers[port.name];
+    if(handler) {
         port.onMessage.addListener(function (message) {
-            getInstagram(message, function (message) {port.postMessage(message);});
+            handler(message, function (message) {port.postMessage(message);});
         });
     }
 } 
@@ -72,6 +57,7 @@ if (typeof(safari) !== 'undefined') {
 }
 
 </script>
+<script src="twttr.media.types.instagram.handler.js" type="text/javascript"></script>
 </head>
 <body>
 
