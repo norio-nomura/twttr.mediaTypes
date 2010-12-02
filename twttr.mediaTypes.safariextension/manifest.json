@@ -7,7 +7,7 @@
         "48":"Icon-48.png",
         "128":"Icon-128.png"
     },
-    "background_page":"twttr.media.types.instagram.global.html",
+    "background_page":"global.html",
     "content_scripts":[
         {
             "matches":[
