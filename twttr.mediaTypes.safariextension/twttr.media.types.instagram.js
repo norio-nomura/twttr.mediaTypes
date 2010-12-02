@@ -28,7 +28,7 @@ THE SOFTWARE.
     if (typeof(twttr.mediaType) !== 'undefined'){
         if (typeof(twttr.media.types.instagram) === 'undefined'){
             twttr.mediaType('twttr.media.types.instagram', {
-                icon : 'photo', favicon : 'http://instagr.am/static/images/logoCamera.png',
+                icon : 'photo',
                 domain : 'http://instagr.am', matchers : { 
                     standardUrl: /^#{optional_protocol}?instagr\.am\/(.*)$/g
                 },

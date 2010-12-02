@@ -28,7 +28,7 @@ THE SOFTWARE.
     if (typeof(twttr.mediaType) !== 'undefined'){
         if (typeof(twttr.media.types.dribbble) === 'undefined'){
             twttr.mediaType('twttr.media.types.dribbble', {
-                icon : 'photo', favicon : 'http://dribbble.com/favicon.ico',
+                icon : 'photo',
                 domain : 'http://dribbble.com', matchers : {
                     standardUrl: /^#{optional_protocol}?dribbble\.com\/shots\/(\d+)\S*$/g
                 },
