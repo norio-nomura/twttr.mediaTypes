@@ -51,9 +51,11 @@ if (window.top === window) {
                     getObjectFromGlobal(eventMessage.message);
                 }, false);
         } else if (typeof(chrome) !== 'undefined') {
-            port = chrome.extension.connect({'name': 'twttr.media.types.slideshare'});
-            port.onMessage.addListener(getObjectFromGlobal);
             sendObjectToGlobal = function (obj) {
+                    if (!port) {
+                        port = chrome.extension.connect({'name': 'twttr.media.types.slideshare'});
+                        port.onMessage.addListener(getObjectFromGlobal);
+                    }
                     port.postMessage(obj);
                 };
         }
