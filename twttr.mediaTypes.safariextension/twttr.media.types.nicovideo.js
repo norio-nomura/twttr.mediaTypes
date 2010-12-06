@@ -51,7 +51,7 @@ THE SOFTWARE.
                 },
                 domain : 'http://www.nicovideo.jp', matchers : {
                     tinyUrl : /^#{optional_protocol}?nico\.ms\/(?:l\/)?((?:sm|lv|nm|im|co)?\d+)(?:#.*)?$/g,
-                    standardUrl: /^#{optional_protocol}?(?:www|live|seiga|com)\.nicovideo\.jp\/(?:watch|seiga|community)\/((?:sm|lv|nm|im|co)?\d+)(?:#.*)?$/g
+                    standardUrl: /^#{optional_protocol}?(?:www|live|seiga|com)\.nicovideo\.jp\/(?:watch|seiga|community)\/((?:sm|lv|nm|im|co)?\d+)\/?(?:#.*)?$/g
                 },
                 process : function (A) {
                     A();
