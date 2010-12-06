@@ -62,6 +62,7 @@ if (window.top === window) {
         'twttr.media.types.mobypicture.js',
         'twttr.media.types.movapic.js',
         'twttr.media.types.nicovideo.js',
+        'twttr.media.types.posterous.js',
         'twttr.media.types.sexypeek.js',
         'twttr.media.types.slideshare.js',
         'twttr.media.types.withings.js',

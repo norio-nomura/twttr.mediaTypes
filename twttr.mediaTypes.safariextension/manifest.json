@@ -1,6 +1,6 @@
 {
     "name":"twttr.mediaTypes",
-    "version":"1.3",
+    "version":"1.4",
     "description":"Show preview image from some sites on #NewTwitter.",
     "icons":{
         "16":"Icon-16.png",
@@ -31,6 +31,7 @@
             "js":[
                 "injectHTMLLinkElement.js",
                 "twttr.media.types.instagram.listener.js",
+                "twttr.media.types.posterous.listener.js",
                 "twttr.media.types.slideshare.listener.js"
             ],
             "run_at":"document_end"
@@ -38,6 +39,7 @@
     ],
     "permissions":[
         "http://instagr.am/*",
+        "http://posterous.com/api/getpost",
         "http://www.slideshare.net/api/2/get_slideshow"
     ]
 }
