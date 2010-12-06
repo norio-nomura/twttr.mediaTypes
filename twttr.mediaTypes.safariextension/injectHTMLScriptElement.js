@@ -28,7 +28,7 @@ if (window.top === window) {
     (function (scriptFileName) {
         var handleLoad = function (evt) {
             if (evt.target.nodeName === 'SCRIPT') {
-                if (/^https:.*\/phoenix\.bundle\.js/.test(evt.target.src)) {
+                if (/^https?:.*\/phoenix\.bundle\.js/.test(evt.target.src)) {
                     window.document.removeEventListener("load", handleLoad, true);
                     var scriptFileNames;
                     if (typeof(scriptFileName) === 'string') {
