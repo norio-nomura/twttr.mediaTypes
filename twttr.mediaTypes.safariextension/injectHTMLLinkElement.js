@@ -54,7 +54,6 @@ if (window.top === window) {
             }
         }
     })([
-        'twttr.media.types.dribbble.css',
-        'twttr.media.types.instagram.css'
+        'twttr.media.types.dribbble.css'
     ]);
 }

@@ -58,13 +58,11 @@ if (window.top === window) {
         window.document.addEventListener("load", handleLoad, true);
     })([
         'twttr.media.types.dribbble.js',
-        'twttr.media.types.instagram.js',
         'twttr.media.types.mobypicture.js',
         'twttr.media.types.movapic.js',
         'twttr.media.types.nicovideo.js',
         'twttr.media.types.posterous.js',
         'twttr.media.types.sexypeek.js',
-        'twttr.media.types.slideshare.js',
         'twttr.media.types.togetter.js',
         'twttr.media.types.withings.js',
         'twttr.streams.Stream.highlightItem.js'
