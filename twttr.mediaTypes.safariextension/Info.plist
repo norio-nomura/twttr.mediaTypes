@@ -28,6 +28,7 @@
 				<string>injectHTMLLinkElement.js</string>
 				<string>twttr.media.types.cameraplus.listener.js</string>
 				<string>twttr.media.types.posterous.listener.js</string>
+				<string>twttr.media.types.twitlonger.listener.js</string>
 			</array>
 			<key>Start</key>
 			<array>
@@ -55,6 +56,7 @@
 				<string>twitter.com</string>
 				<string>campl.us</string>
 				<string>posterous.com</string>
+				<string>www.twitlonger.com</string>
 			</array>
 			<key>Include Secure Pages</key>
 			<true/>

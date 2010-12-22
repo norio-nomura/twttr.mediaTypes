@@ -31,13 +31,15 @@
             "js":[
                 "injectHTMLLinkElement.js",
                 "twttr.media.types.cameraplus.listener.js",
-                "twttr.media.types.posterous.listener.js"
+                "twttr.media.types.posterous.listener.js",
+                "twttr.media.types.twitlonger.listener.js"
             ],
             "run_at":"document_end"
         }
     ],
     "permissions":[
         "http://campl.us/*",
-        "http://posterous.com/api/getpost"
+        "http://posterous.com/api/getpost",
+        "http://www.twitlonger.com/api_read/*"
     ]
 }

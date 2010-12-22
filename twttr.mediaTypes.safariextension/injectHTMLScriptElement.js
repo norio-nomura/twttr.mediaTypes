@@ -65,6 +65,7 @@ if (window.top === window) {
         'twttr.media.types.posterous.js',
         'twttr.media.types.sexypeek.js',
         'twttr.media.types.togetter.js',
+        'twttr.media.types.twitlonger.js',
         'twttr.media.types.withings.js',
         'twttr.streams.Stream.highlightItem.js'
     ]);
