@@ -11,9 +11,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.6</string>
+	<string>1.7</string>
 	<key>CFBundleVersion</key>
-	<string>1.6</string>
+	<string>1.7</string>
 	<key>Chrome</key>
 	<dict>
 		<key>Global Page</key>
@@ -26,6 +26,7 @@
 			<key>End</key>
 			<array>
 				<string>injectHTMLLinkElement.js</string>
+				<string>twttr.media.types.cameraplus.listener.js</string>
 				<string>twttr.media.types.posterous.listener.js</string>
 			</array>
 			<key>Start</key>
@@ -52,6 +53,7 @@
 			<key>Allowed Domains</key>
 			<array>
 				<string>twitter.com</string>
+				<string>campl.us</string>
 				<string>posterous.com</string>
 			</array>
 			<key>Include Secure Pages</key>

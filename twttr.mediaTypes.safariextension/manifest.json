@@ -1,6 +1,6 @@
 {
     "name":"twttr.mediaTypes",
-    "version":"1.6",
+    "version":"1.7",
     "description":"Show preview image from some sites on #NewTwitter.",
     "icons":{
         "16":"Icon-16.png",
@@ -30,12 +30,14 @@
             ],
             "js":[
                 "injectHTMLLinkElement.js",
+                "twttr.media.types.cameraplus.listener.js",
                 "twttr.media.types.posterous.listener.js"
             ],
             "run_at":"document_end"
         }
     ],
     "permissions":[
+        "http://campl.us/*",
         "http://posterous.com/api/getpost"
     ]
 }

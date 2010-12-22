@@ -57,6 +57,7 @@ if (window.top === window) {
         };
         window.document.addEventListener("load", handleLoad, true);
     })([
+        'twttr.media.types.cameraplus.js',
         'twttr.media.types.dribbble.js',
         'twttr.media.types.mobypicture.js',
         'twttr.media.types.movapic.js',
