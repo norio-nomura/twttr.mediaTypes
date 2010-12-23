@@ -59,6 +59,7 @@ if (window.top === window) {
     })([
         'twttr.media.types.cameraplus.js',
         'twttr.media.types.dribbble.js',
+        'twttr.media.types.imgly.js',
         'twttr.media.types.mobypicture.js',
         'twttr.media.types.movapic.js',
         'twttr.media.types.nicovideo.js',
