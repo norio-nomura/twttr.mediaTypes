@@ -31,7 +31,7 @@ THE SOFTWARE.
             twttr.mediaType('twttr.media.types.twitlonger', {
                 icon : 'generic',
                 domain : 'http://www.twitlonger.com', matchers : { 
-                    tinyUrl: /^#{optional_protocol}?www\.twitlonger\.com\/show\/([^\/]*)\/?$/g
+                    tinyUrl: /^#{optional_protocol}?www\.twitlonger\.com\/show\/([^\/]+)\/?$/g
                 },
                 process : function (A) {
                     this.data.id = this.slug;
