@@ -45,19 +45,22 @@ if (window.top === window) {
         
         if (typeof(safari) !== 'undefined') {
             sendObjectToGlobal = function (obj) {
-                    safari.self.tab.dispatchMessage('twttr.media.types.posterous', obj);
-                };
+                safari.self.tab.dispatchMessage('twttr.media.types.posterous', obj);
+            };
             safari.self.addEventListener('message', function (eventMessage) {
+                if (eventMessage.name === 'twttr.media.types.posterous') {
+                    eventMessage.stopPropagation();
                     getObjectFromGlobal(eventMessage.message);
-                }, false);
+                }
+            }, false);
         } else if (typeof(chrome) !== 'undefined') {
             sendObjectToGlobal = function (obj) {
-                    if (!port) {
-                        port = chrome.extension.connect({'name': 'twttr.media.types.posterous'});
-                        port.onMessage.addListener(getObjectFromGlobal);
-                    }
-                    port.postMessage(obj);
-                };
+                if (!port) {
+                    port = chrome.extension.connect({'name': 'twttr.media.types.posterous'});
+                    port.onMessage.addListener(getObjectFromGlobal);
+                }
+                port.postMessage(obj);
+            };
         }
         
         window.document.addEventListener('twttr.media.types.posterous', function (evt) {sendObjectToGlobal(evt.detail);}, true);

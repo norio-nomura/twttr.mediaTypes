@@ -45,19 +45,22 @@ if (window.top === window) {
         
         if (typeof(safari) !== 'undefined') {
             sendObjectToGlobal = function (obj) {
-                    safari.self.tab.dispatchMessage('twttr.media.types.twitlonger', obj);
-                };
+                safari.self.tab.dispatchMessage('twttr.media.types.twitlonger', obj);
+            };
             safari.self.addEventListener('message', function (eventMessage) {
+                if (eventMessage.name === 'twttr.media.types.twitlonger') {
+                    eventMessage.stopPropagation();
                     getObjectFromGlobal(eventMessage.message);
-                }, false);
+                }
+            }, false);
         } else if (typeof(chrome) !== 'undefined') {
             sendObjectToGlobal = function (obj) {
-                    if (!port) {
-                        port = chrome.extension.connect({'name': 'twttr.media.types.twitlonger'});
-                        port.onMessage.addListener(getObjectFromGlobal);
-                    }
-                    port.postMessage(obj);
-                };
+                if (!port) {
+                    port = chrome.extension.connect({'name': 'twttr.media.types.twitlonger'});
+                    port.onMessage.addListener(getObjectFromGlobal);
+                }
+                port.postMessage(obj);
+            };
         }
         
         window.document.addEventListener('twttr.media.types.twitlonger', function (evt) {sendObjectToGlobal(evt.detail);}, true);
