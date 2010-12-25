@@ -38,17 +38,27 @@ if (window.top === window) {
                     }
                     if (Array.isArray(scriptFileNames)) {
                         if (typeof(safari) !== 'undefined') {
-                            for (var i = 0; i< scriptFileNames.length; i++) {
-                                var script = window.document.createElement('script');
-                                script.src = safari.extension.baseURI + scriptFileNames[i];
-                                window.document.head.appendChild(script);
-                            }
+                            safari.self.addEventListener('message', function (eventMessage) {
+                                if (eventMessage.name === 'injectHTMLScriptElement') {
+                                    eventMessage.stopPropagation();
+                                    var script = window.document.createElement('script');
+                                    script.src = safari.extension.baseURI + eventMessage.message.scriptFilename;
+                                    window.document.head.appendChild(script);
+                                }
+                            }, false);
+                            scriptFileNames.forEach(function (scriptFilename) {
+                                safari.self.tab.dispatchMessage('injectHTMLScriptElement', scriptFilename);
+                            });
                         } else if (typeof(chrome) !== 'undefined') {
-                            for (var i = 0; i< scriptFileNames.length; i++) {
+                            var port = chrome.extension.connect({'name': 'injectHTMLScriptElement'});
+                            port.onMessage.addListener(function (message) {
                                 var script = window.document.createElement('script');
-                                script.src = chrome.extension.getURL(scriptFileNames[i]);
+                                script.src = chrome.extension.getURL(message.scriptFilename);
                                 window.document.head.appendChild(script);
-                            }
+                            });
+                            scriptFileNames.forEach(function (scriptFilename) {
+                                port.postMessage(scriptFilename);
+                            });
                         }
                     }
                     delete handleLoad;
@@ -58,6 +68,7 @@ if (window.top === window) {
         window.document.addEventListener("load", handleLoad, true);
     })([
         'twttr.media.types.cameraplus.js',
+        'twttr.media.types.cloudapp.js',
         'twttr.media.types.dribbble.js',
         'twttr.media.types.imgly.js',
         'twttr.media.types.mobypicture.js',

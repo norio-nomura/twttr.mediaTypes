@@ -11,9 +11,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.8</string>
+	<string>1.9</string>
 	<key>CFBundleVersion</key>
-	<string>1.8</string>
+	<string>1.9</string>
 	<key>Chrome</key>
 	<dict>
 		<key>Global Page</key>
@@ -27,6 +27,7 @@
 			<array>
 				<string>injectHTMLLinkElement.js</string>
 				<string>twttr.media.types.cameraplus.listener.js</string>
+				<string>twttr.media.types.cloudapp.listener.js</string>
 				<string>twttr.media.types.posterous.listener.js</string>
 				<string>twttr.media.types.twitlonger.listener.js</string>
 			</array>
@@ -55,6 +56,7 @@
 			<array>
 				<string>twitter.com</string>
 				<string>campl.us</string>
+				<string>cl.ly</string>
 				<string>posterous.com</string>
 				<string>www.twitlonger.com</string>
 			</array>

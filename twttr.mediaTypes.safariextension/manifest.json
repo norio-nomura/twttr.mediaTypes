@@ -1,6 +1,6 @@
 {
     "name":"twttr.mediaTypes",
-    "version":"1.8",
+    "version":"1.9",
     "description":"Show preview image from some sites on #NewTwitter.",
     "icons":{
         "16":"Icon-16.png",
@@ -31,14 +31,17 @@
             "js":[
                 "injectHTMLLinkElement.js",
                 "twttr.media.types.cameraplus.listener.js",
+                "twttr.media.types.cloudapp.listener.js",
                 "twttr.media.types.posterous.listener.js",
                 "twttr.media.types.twitlonger.listener.js"
             ],
             "run_at":"document_end"
         }
     ],
+    "options_page": "options.html",
     "permissions":[
         "http://campl.us/*",
+        "http://cl.ly/*",
         "http://posterous.com/api/getpost",
         "http://www.twitlonger.com/api_read/*"
     ]
