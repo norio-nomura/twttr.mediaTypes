@@ -31,7 +31,7 @@ THE SOFTWARE.
             twttr.mediaType('twttr.media.types.cameraplus', {
                 icon : 'photo', favicon: 'http://taptaptap.com/img/icons/cameraplus.png',
                 domain : 'http://campl.us/', matchers : { 
-                    tinyUrl: /^#{optional_protocol}?campl\.us\/(.*)$/g
+                    tinyUrl: /^#{optional_protocol}?campl\.us\/(.+)$/g
                 },
                 process : function (A) {
                     this.data.path = this.slug;
