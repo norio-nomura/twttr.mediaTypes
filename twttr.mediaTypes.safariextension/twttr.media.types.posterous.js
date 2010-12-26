@@ -31,7 +31,7 @@ THE SOFTWARE.
             twttr.mediaType('twttr.media.types.posterous', {
                 icon : 'generic', favicon : 'http://posterous.com/images/favicon.png',
                 domain : 'http://posterous.com', matchers : { 
-                    tinyUrl: /^#{optional_protocol}?post\.ly\/(.*)$/g
+                    tinyUrl: /^#{optional_protocol}?post\.ly\/(.+)$/g
                 },
                 process : function (A) {
                     this.data.id = this.slug;
