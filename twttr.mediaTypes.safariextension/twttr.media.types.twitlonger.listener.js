@@ -26,38 +26,18 @@ THE SOFTWARE.
 
 if (window.top === window) {
     (function () {
-        function getObjectFromGlobal(message) {
-            var a = function (countDown) {
-                var div = window.document.getElementById(message.id);
-                if (div) {
-                    div.innerHTML = message.innerHTML;
-                    delete a;
-                } else if (countDown === 0) {
-                    delete a;
-                } else {
-                    window.setTimeout(a, 100, --countDown);
-                }
-            };
-            a(10);
-        }
-        
-        var sendObjectToGlobal, port;
+        var sendObjectToGlobal;
         
         if (typeof(safari) !== 'undefined') {
             sendObjectToGlobal = function (obj) {
                 safari.self.tab.dispatchMessage('twttr.media.types.twitlonger', obj);
             };
-            safari.self.addEventListener('message', function (eventMessage) {
-                if (eventMessage.name === 'twttr.media.types.twitlonger') {
-                    eventMessage.stopPropagation();
-                    getObjectFromGlobal(eventMessage.message);
-                }
-            }, false);
         } else if (typeof(chrome) !== 'undefined') {
+            var port;
             sendObjectToGlobal = function (obj) {
                 if (!port) {
                     port = chrome.extension.connect({'name': 'twttr.media.types.twitlonger'});
-                    port.onMessage.addListener(getObjectFromGlobal);
+                    port.onMessage.addListener(window.twttr.mediaTypes.getObjectFromGlobal);
                 }
                 port.postMessage(obj);
             };

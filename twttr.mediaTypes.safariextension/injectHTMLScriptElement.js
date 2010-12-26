@@ -25,6 +25,44 @@ THE SOFTWARE.
 */
 
 if (window.top === window) {
+
+    window.twttr = {
+        mediaTypes : {
+            getObjectFromGlobal : function (message) {
+                var a = function (countDown) {
+                    var div = window.document.getElementById(message.id);
+                    if (div) {
+                        div.innerHTML = message.innerHTML;
+                        delete a;
+                    } else if (countDown === 0) {
+                        delete a;
+                    } else {
+                        window.setTimeout(a, 100, --countDown);
+                    }
+                };
+                a(10);
+            }
+        }
+    };
+
+    if (typeof(safari) !== 'undefined') {
+        window.twttr.mediaTypes.safariMessageHandlers = {
+            'injectHTMLScriptElement' : function (message) {
+                var script = window.document.createElement('script');
+                script.src = safari.extension.baseURI + message.scriptFilename;
+                window.document.head.appendChild(script);
+            }
+        };
+        safari.self.addEventListener('message', function (eventMessage) {
+            var handler = window.twttr.mediaTypes.safariMessageHandlers[eventMessage.name];
+            if (handler) {
+                handler.call(eventMessage, eventMessage.message);
+            } else {
+                window.twttr.mediaTypes.getObjectFromGlobal.call(eventMessage, eventMessage.message);
+            }
+        }, false);
+    }
+
     (function (scriptFileName) {
         var handleLoad = function (evt) {
             if (evt.target.nodeName === 'SCRIPT') {
@@ -38,14 +76,6 @@ if (window.top === window) {
                     }
                     if (Array.isArray(scriptFileNames)) {
                         if (typeof(safari) !== 'undefined') {
-                            safari.self.addEventListener('message', function (eventMessage) {
-                                if (eventMessage.name === 'injectHTMLScriptElement') {
-                                    eventMessage.stopPropagation();
-                                    var script = window.document.createElement('script');
-                                    script.src = safari.extension.baseURI + eventMessage.message.scriptFilename;
-                                    window.document.head.appendChild(script);
-                                }
-                            }, false);
                             scriptFileNames.forEach(function (scriptFilename) {
                                 safari.self.tab.dispatchMessage('injectHTMLScriptElement', scriptFilename);
                             });
