@@ -30,26 +30,26 @@ if (typeof(handlers) === 'undefined') {
 
 handlers['twttr.media.types.cloudapp'] = function (id, response) {
     var regImg = /(\.png|\.jpg|\.gif|\.tiff)$/i;
-	$.ajax({
-	    url: 'http://cl.ly/'+id,
-	    dataType: 'json',
+    $.ajax({
+        url: 'http://cl.ly/'+id,
+        dataType: 'json',
         success: function (D) {
             var innerHTML;
             switch (D.item_type) {
                 case 'image':
-                    innerHTML = '<a href="' + D.url + '" title="' + (D.name || D.url) + '"><img src="' + D.content_url + '" alt="' + (D.name || D.url) + '"/></a>';
+                    innerHTML = '<a href="' + D.url + '" title="' + (D.name || D.url) + '" target="_blank"><img src="' + D.content_url.replace(/^https?:/,'') + '" alt="' + (D.name || D.url) + '"/></a>';
                     break;
                 case 'bookmark':
                     if (regImg.test(D.redirect_url)) {
-                        innerHTML = '<a href="' + D.redirect_url + '"><img src="' + D.redirect_url + '" alt="' + (D.name || D.redirect_url) + '[' + D.redirect_url + ']"/></a>';
+                        innerHTML = '<a href="' + D.redirect_url + '" target="_blank"><img src="' + D.redirect_url + '" alt="' + (D.name || D.redirect_url) + '[' + D.redirect_url + ']"/></a>';
                     } else {
-                        innerHTML = '<a href="' + D.redirect_url + '" title="' + D.redirect_url + '"><img src="' + D.icon + '" alt="' + D.redirect_url + '"/>' + (D.name || D.redirect_url) + '</a>';
+                        innerHTML = '<a href="' + D.redirect_url + '" title="' + D.redirect_url + '" target="_blank"><img src="' + D.icon.replace(/^https?:/,'') + '" alt="' + D.redirect_url + '"/>' + (D.name || D.redirect_url) + '</a>';
                     }
                     break;
                 default:
-                    innerHTML = '<a href="' + D.url + '" title="' + D.url + '"><img src="' + D.icon + '" alt="' + D.url + '"/>"' + (D.name || D.url) + '</a>';
+                    innerHTML = '<a href="' + D.url + '" title="' + D.url + '" target="_blank"><img src="' + D.icon.replace(/^https?:/,'') + '" alt="' + D.url + '"/>"' + (D.name || D.url) + '</a>';
             };
             response({id: id, innerHTML: innerHTML});
         }
-	});
+    });
 };

@@ -28,7 +28,7 @@ THE SOFTWARE.
     if (typeof(twttr.mediaType) !== 'undefined'){
         if (typeof(twttr.media.types.cloudapp) === 'undefined'){
             twttr.mediaType('twttr.media.types.cloudapp', {
-                icon : 'generic', favicon: 'http://cl.ly/favicon.ico',
+                icon : 'generic', favicon: '//cl.ly/favicon.ico',
                 domain : 'http://getcloudapp.com/', matchers : {
                     tinyUrl: /^#{optional_protocol}?cl\.ly\/([^\/]+)\/?$/g
                 },
