@@ -34,14 +34,14 @@ handlers['twttr.media.types.cameraplus'] = function (path, response) {
 	    url: 'http://campl.us/'+path,
 	    dataType: 'html',
 	    global: false,
-        contentType: 'text/html',
-        complete: function (xhr, textStatus) {
-            var element = $(xhr.responseText).find('.photo');
-            if (element) {
-                response({id: path, innerHTML: '<img src="' + element.attr('src') + '"></img>'});
-            } else {
-                response({id: path, innerHTML: textStatus});
-            }
-        }
+      contentType: 'text/html',
+      complete: function (xhr, textStatus) {
+          var element = $(xhr.responseText).find('.photo');
+          if (element) {
+              response({id: path, innerHTML: '<img src="' + element.attr('src') + '"></img>'});
+          } else {
+              response({id: path, innerHTML: textStatus});
+          }
+      }
 	});
 };
