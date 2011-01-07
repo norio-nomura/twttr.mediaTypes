@@ -37,7 +37,7 @@ THE SOFTWARE.
                     A();
                 },
                 render : function(B){
-                    var A = '<div class="imgly"><a class="inline-media-image" data-inline-type="imgly" href="http://img.ly/pic/{id}" target="_blank"><img src="http://img.ly/show/large/{id}"/></a></div>';
+                    var A = '<div class="imgly"><a class="inline-media-image" data-inline-type="imgly" href="http://img.ly/{id}" target="_blank"><img src="http://img.ly/show/large/{id}"/></a></div>';
                     $(B).append(twttr.supplant(A, this.data));
                 }
             });
