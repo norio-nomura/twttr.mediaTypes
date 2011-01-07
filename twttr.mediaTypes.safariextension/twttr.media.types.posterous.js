@@ -29,8 +29,8 @@ THE SOFTWARE.
     if (typeof(twttr.mediaType) !== 'undefined'){
         if (typeof(twttr.media.types.posterous) === 'undefined'){
             twttr.mediaType('twttr.media.types.posterous', {
-                icon : 'generic', favicon : 'http://posterous.com/images/favicon.png',
-                domain : 'http://posterous.com', matchers : { 
+                icon : 'generic', favicon : '//posterous.com/images/favicon.png',
+                domain : '//posterous.com', matchers : {
                     tinyUrl: /^#{optional_protocol}?post\.ly\/(.+)$/g
                 },
                 process : function (A) {
