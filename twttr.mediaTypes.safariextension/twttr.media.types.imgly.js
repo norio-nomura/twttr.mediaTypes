@@ -28,8 +28,8 @@ THE SOFTWARE.
     if (typeof(twttr.mediaType) !== 'undefined'){
         if (typeof(twttr.media.types.imgly) === 'undefined') {
             twttr.mediaType('twttr.media.types.imgly', {
-                icon :'photo', favicon: 'http://img.ly/img/favicon.ico',
-                domain : 'http://img.ly', matchers: {
+                icon :'photo', favicon: '//img.ly/img/favicon.ico',
+                domain : '//img.ly', matchers: {
                     standardUrl: /^#{optional_protocol}?img\.ly\/([^\/]+)\/?/g
                 },
                 process : function (A) {
@@ -37,7 +37,7 @@ THE SOFTWARE.
                     A();
                 },
                 render : function(B){
-                    var A = '<div class="imgly"><a class="inline-media-image" data-inline-type="imgly" href="http://img.ly/{id}" target="_blank"><img src="http://img.ly/show/large/{id}"/></a></div>';
+                    var A = '<div class="imgly"><a class="inline-media-image" data-inline-type="imgly" href="http://img.ly/{id}" target="_blank"><img src="//img.ly/show/large/{id}"/></a></div>';
                     $(B).append(twttr.supplant(A, this.data));
                 }
             });
