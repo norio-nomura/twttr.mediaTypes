@@ -29,7 +29,7 @@ THE SOFTWARE.
         if (typeof(twttr.media.types.cloudapp) === 'undefined'){
             twttr.mediaType('twttr.media.types.cloudapp', {
                 icon : 'generic', favicon: 'http://cl.ly/favicon.ico',
-                domain : 'http://cloudapp.com', matchers : { 
+                domain : 'http://getcloudapp.com/', matchers : {
                     tinyUrl: /^#{optional_protocol}?cl\.ly\/([^\/]+)\/?$/g
                 },
                 process : function (A) {
