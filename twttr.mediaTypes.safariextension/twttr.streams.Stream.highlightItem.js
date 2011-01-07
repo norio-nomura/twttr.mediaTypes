@@ -25,10 +25,10 @@ THE SOFTWARE.
 */
 
 (function () {
-    if (typeof(twttr.app) !== 'undefined' &&
-        typeof(twttr.app.currentPage()) !== 'undefined' &&
-        typeof(twttr.app.currentPage().streamManager.streams.current.__proto__.__proto__.__proto__.highlightItem) !== 'undefined') {
-        twttr.app.currentPage().streamManager.streams.current.__proto__.__proto__.__proto__.highlightItem = function (A) {
+    if (typeof(twttr.streams) !== 'undefined' &&
+        typeof(twttr.streams.Stream) !== 'undefined' &&
+        typeof(twttr.streams.Stream.prototype.highlightItem) !== 'undefined') {
+        twttr.streams.Stream.prototype.highlightItem = function (A) {
             var B = this.getCurrentlyHighlightedItem();
             if (B) {
                 B.removeClass('hovered-stream-item');
