@@ -1,6 +1,6 @@
 {
     "name":"twttr.mediaTypes",
-    "version":"1.11",
+    "version":"1.12",
     "description":"Show preview image from some sites on #NewTwitter.",
     "icons":{
         "16":"Icon-16.png",
