@@ -58,7 +58,7 @@ THE SOFTWARE.
                 },
                 render : function (B) {
                     if (this.data.type) {
-                        $(B).append(twttr.supplant(this.constructor.templates[this.data.type], this.data));
+                        $(B).append(twttr.util.supplant(this.constructor.templates[this.data.type], this.data));
                     }
                 }
             }).statics({

@@ -38,7 +38,7 @@ THE SOFTWARE.
                 },
                 render : function(B){
                     var A = '<iframe width="100%" height="480px" src="http://togetter.com/iframe/{id}?bc=7FC6BC"></iframe>';
-                    $(B).append(twttr.supplant(A, this.data));
+                    $(B).append(twttr.util.supplant(A, this.data));
                 }
             });
         }

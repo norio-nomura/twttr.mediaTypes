@@ -38,7 +38,7 @@ THE SOFTWARE.
                 },
                 render : function(B){
                     var A = '<a href="http://sexypeek.com/{id}" target="_blank"><img src="http://sexypeek.com/e{id}" /></a>';
-                    $(B).append(twttr.supplant(A, this.data));
+                    $(B).append(twttr.util.supplant(A, this.data));
                 }
             });
         }

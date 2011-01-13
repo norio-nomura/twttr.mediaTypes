@@ -61,7 +61,7 @@ THE SOFTWARE.
                         $(B).append(this.data.html);
                     } else {
                         var A='<a href="{href}" target="_blank" title="{title}"><img width="100%" src="{url}" alt="{title}" /></a>';
-                        $(B).append(twttr.supplant(A, this.data));
+                        $(B).append(twttr.util.supplant(A, this.data));
                     }
                 }
             });

@@ -40,7 +40,7 @@ THE SOFTWARE.
                 render : function (B) {
                     this.request(this.data.path);
                     var A = '<a id="{path}" class="cameraplus" href="http://campl.us/{path}" target="_blank"></a>';
-                    $(B).append(twttr.supplant(A, this.data));
+                    $(B).append(twttr.util.supplant(A, this.data));
                 }
             }).methods({
                 request : function (path) {

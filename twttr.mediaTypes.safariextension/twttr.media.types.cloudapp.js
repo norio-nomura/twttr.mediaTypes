@@ -39,7 +39,7 @@ THE SOFTWARE.
                 render : function (B) {
                     this.request(this.data.id);
                     var A = '<div id="{id}" class="cloudapp tweet-text-large" width="100%"></div>';
-                    $(B).append(twttr.supplant(A, this.data));
+                    $(B).append(twttr.util.supplant(A, this.data));
                 }
             }).methods({
                 request : function (path) {

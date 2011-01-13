@@ -55,7 +55,7 @@ THE SOFTWARE.
                     var A = '<iframe src="http://www.withings.com/{lang}/utils/graphwidget?userid={userid}&publickey={publickey}&massUnit={massUnit}" width="260" height="400" scrolling="no" style="border:0;">';
                     console.log(this.data);
                     console.log(this.url);
-                    $(B).append(twttr.supplant(A, this.data));
+                    $(B).append(twttr.util.supplant(A, this.data));
                 }
             }).statics({
                 re : {

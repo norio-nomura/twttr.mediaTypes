@@ -38,7 +38,7 @@ THE SOFTWARE.
                 },
                 render : function(B){
                     var A = '<div class="movapic"><a class="inline-media-image" data-inline-type="movapic" href="http://movapic.com/pic/{id}" target="_blank"><img src="http://image.movapic.com/pic/m_{id}.jpeg"/></a></div>';
-                    $(B).append(twttr.supplant(A, this.data));
+                    $(B).append(twttr.util.supplant(A, this.data));
                 }
             });
         }
