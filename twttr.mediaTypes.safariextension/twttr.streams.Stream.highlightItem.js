@@ -43,9 +43,6 @@ THE SOFTWARE.
                 twttr.app.currentPage().focusStreamItem(D);
             }
         };
-        twttr.currentUser.showAllInlineMedia = function (H) {
-            H.success({show_all_inline_media:true});
-        };
     }
 })();
 
